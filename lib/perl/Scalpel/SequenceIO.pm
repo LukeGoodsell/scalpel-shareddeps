@@ -16,13 +16,14 @@ require Exporter;
 
 use strict;
 use warnings;
-use FindBin qw($Bin);
-use lib $Bin; # add $Bin directory to @INC
-use Utils;
-use HashesIO;
+use Scalpel::Utils;
+use Scalpel::HashesIO;
 use Digest::MD5 qw(md5_hex);
+use File::Which;
 
-my $bamtools = "$Bin/bamtools-2.3.0/bin/bamtools";
+my $bamtools = which('bamtools');
+defined($bamtools)
+    or die "Could not find 'bamtools' executable. Is it installed and in the PATH environment variable?";
 
 ## extract coordinates from file
 #####################################################

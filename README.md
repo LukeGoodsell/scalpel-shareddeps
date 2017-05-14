@@ -22,11 +22,12 @@ To run scalpel, you will need:
 * Bamtools >= 2.3.0
 * BCFtools >= 1.1
 * Samtools >= 1.1
-* Microassembler
 * Perl modules:
     * Parallel::ForkManager
     * Text::NSP
     * MLDBM
+    * MLDBM::Sync
+    * File::Which
 
 ## Installation
 
@@ -45,6 +46,12 @@ To run scalpel, you will need:
     export PATH=$PATH:[SCALPEL_BASE]/bin
     ```
     You may also wish to add the above line to your ~/.bashrc file to automatically run in all new shells.
+    
+4. Make the Microassembler, specifying the location of your bamtools installation directory. E.g.:
+
+    ```
+    make BAMTOOLS_DIR=[BAMTOOLS_BASE]
+    ```
 
 ## Usage
 

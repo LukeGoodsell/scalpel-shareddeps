@@ -14,12 +14,10 @@
 use warnings;
 use strict;
 use POSIX;
-use FindBin qw($Bin);
-use lib $Bin; # add $Bin directory to @INC
-use Usage;
-use Utils qw(:DEFAULT $findVariants $findDenovos $findSomatic $exportTool $bamtools $samtools $bcftools);
-use HashesIO;
-use SequenceIO;
+use Scalpel::Usage;
+use Scalpel::Utils qw(:DEFAULT $findVariants $findDenovos $findSomatic $exportTool $bamtools $samtools $bcftools);
+use Scalpel::HashesIO;
+use Scalpel::SequenceIO;
 use Parallel::ForkManager;
 use List::Util qw[min max];
 #use Math::Random qw(:all);

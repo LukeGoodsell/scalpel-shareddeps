@@ -14,12 +14,10 @@
 use warnings;
 use strict;
 use POSIX;
-use FindBin qw($Bin);
-use lib $Bin; # add $Bin directory to @INC
-use Usage;
-use Utils qw(:DEFAULT $findVariants $findDenovos $findSomatic $exportTool $bamtools $samtools $bcftools);
-use SequenceIO;
-use HashesIO;
+use Scalpel::Usage;
+use Scalpel::Utils qw(:DEFAULT $findVariants $findDenovos $findSomatic $exportTool $bamtools $samtools $bcftools);
+use Scalpel::SequenceIO;
+use Scalpel::HashesIO;
 use Parallel::ForkManager;
 use List::Util qw[min max];
 #use MathRandom::Random qw(:all);
@@ -28,6 +26,7 @@ use Digest::MD5 qw(md5_hex);
 use Getopt::Long;
 use File::Spec;
 use File::Basename;
+use File::Which;
 
 use MLDBM::Sync;						# this gets the default, SDBM_File
 use MLDBM qw(DB_File Storable);			# use Storable for serializing
@@ -76,7 +75,7 @@ my $COV2FILE = 0;
 my $USEFAIDX = 0;
 
 # programs via absolute path
-my $microassembler = "$Bin/Microassembler/Microassembler";
+my $microassembler = which("Microassembler");
 
 my $rgfile = "readgroups.txt";
 

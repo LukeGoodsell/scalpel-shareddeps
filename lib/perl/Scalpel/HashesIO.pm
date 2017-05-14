@@ -16,9 +16,7 @@ require Exporter;
 
 use strict;
 use warnings;
-use FindBin qw($Bin);
-use lib $Bin; # add $Bin directory to @INC
-use Utils;
+use Scalpel::Utils;
 
 #use Tie::Cache;
 use MLDBM::Sync;                       # this gets the default, SDBM_File

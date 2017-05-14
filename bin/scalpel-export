@@ -14,12 +14,10 @@ use warnings;
 use strict;
 #use POSIX;
 use POSIX qw(strftime);
-use FindBin qw($Bin);
-use lib $Bin; # add $Bin directory to @INC
-use Usage;
-use Utils;
-use SequenceIO;
-use HashesIO;
+use Scalpel::Usage;
+use Scalpel::Utils;
+use Scalpel::SequenceIO;
+use Scalpel::HashesIO;
 use List::Util qw[min max];
 use Getopt::Long;
 use File::Basename;

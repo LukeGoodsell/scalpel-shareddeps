@@ -18,18 +18,17 @@ require Exporter;
 use strict;
 use warnings;
 use POSIX;
-use FindBin qw($Bin);
-use lib $Bin; # add $Bin directory to @INC
+use File::Which;
 
 # programs via absolute path
-our $findVariants = "$Bin/FindVariants.pl";
-our $findDenovos  = "$Bin/FindDenovos.pl";
-our $findSomatic  = "$Bin/FindSomatic.pl";
-#our $exportTool   = "$Bin/ExportVariants.pl";
-our $exportTool   = "$Bin/scalpel-export";
-our $bamtools     = "$Bin/bamtools-2.3.0/bin/bamtools";
-our $samtools     = "$Bin/samtools-1.1/samtools";
-our $bcftools     = "$Bin/bcftools-1.1/bcftools";
+my $findVariants = which("FindVariants.pl");
+our $findDenovos  = which("FindDenovos.pl");
+our $findSomatic  = which("FindSomatic.pl");
+#our $exportTool   = which("ExportVariants.pl");
+our $exportTool   = which("scalpel-export");
+our $bamtools     = which("bamtools");
+our $samtools     = which("samtools");
+our $bcftools     = which("bcftools");
 
 # Run system command 
 #####################################################

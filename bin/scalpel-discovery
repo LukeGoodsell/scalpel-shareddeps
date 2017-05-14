@@ -16,14 +16,12 @@
 use warnings;
 use strict;
 use POSIX;
-use FindBin qw($Bin);
-use lib $Bin; # add $Bin directory to @INC
-use Usage;
-use SequenceIO;
-use Utils qw(:DEFAULT $findVariants $findDenovos $findSomatic $bamtools);
+use Scalpel::Usage;
+use Scalpel::SequenceIO;
+use Scalpel::Utils qw(:DEFAULT $findVariants $findDenovos $findSomatic $bamtools);
 #use File::Path qw(make_path);
 
-use Utils;
+use Scalpel::Utils;
 use Getopt::Long;
 use File::Copy;
 
