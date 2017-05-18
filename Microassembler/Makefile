@@ -1,9 +1,13 @@
-BAMTOOLS_DIR := ../bamtools-2.3.0/
+BAMTOOLS_DIR ?= ../bamtools-2.3.0/
 ABS_BAMTOOLS_DIR := $(realpath $(BAMTOOLS_DIR))
+$(if $(ABS_BAMTOOLS_DIR),,$(error BAMTOOLS_DIR not specified or non-existent))
+
+BAMTOOLS_LIB_DIR := $(if $(wildcard $(ABS_BAMTOOLS_DIR)/lib/bamtools),$(ABS_BAMTOOLS_DIR)/lib/bamtools,$(ABS_BAMTOOLS_DIR)/lib)
+BAMTOOLS_INC_DIR := $(if $(wildcard $(ABS_BAMTOOLS_DIR)/include/bamtools),$(ABS_BAMTOOLS_DIR)/include/bamtools,$(ABS_BAMTOOLS_DIR)/lib)
+
 CXX := g++
-CXXFLAGS := -std=c++0x -Wno-deprecated -Wall -O3 -fexceptions -Wl,-rpath,$(ABS_BAMTOOLS_DIR)/lib/
-#CXXFLAGS := -std=c++0x -Wno-deprecated -Wall -O3 -fexceptions -pg -Wl,-rpath,$(ABS_BAMTOOLS_DIR)/lib/
-INCLUDES := -I$(ABS_BAMTOOLS_DIR)/include/ -L$(ABS_BAMTOOLS_DIR)/lib/
+CXXFLAGS := -std=c++0x -Wno-deprecated -Wall -O3 -fexceptions -Wl,-rpath,$(BAMTOOLS_LIB_DIR)
+INCLUDES := -I$(BAMTOOLS_INC_DIR) -L$(BAMTOOLS_LIB_DIR)
 
 all: Microassembler
 
