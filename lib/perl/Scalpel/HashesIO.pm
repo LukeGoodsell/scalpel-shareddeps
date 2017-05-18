@@ -1,4 +1,4 @@
-package Sclapel::HashesIO;
+package Scalpel::HashesIO;
 
 ###################################################################
 # HashesIO

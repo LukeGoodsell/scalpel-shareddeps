@@ -321,11 +321,13 @@ sub callSVs {
 	print STDERR "-- Detect mutations on $dir\n";
 
 	my $bam_abs_path = File::Spec->rel2abs($bamfile);
+	my $ref_abs_path = File::Spec->rel2abs($REF);
+	my $bed_abs_path = File::Spec->rel2abs($BEDFILE);
 
 	my $command = "$findVariants ".
 		"--bam $bam_abs_path ".
-		"--bed $BEDFILE ".
-		"--ref $REF ".
+		"--bed $bed_abs_path ".
+		"--ref $ref_abs_path ".
 		"--kmer $kmer ". 
 		"--mincov $min_cov ". 
 		"--covthr $cov_threshold ". 

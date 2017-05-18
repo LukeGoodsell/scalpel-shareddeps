@@ -21,7 +21,7 @@ use POSIX;
 use File::Which;
 
 # programs via absolute path
-my $findVariants = which("FindVariants.pl");
+our $findVariants = which("FindVariants.pl");
 our $findDenovos  = which("FindDenovos.pl");
 our $findSomatic  = which("FindSomatic.pl");
 #our $exportTool   = which("ExportVariants.pl");
